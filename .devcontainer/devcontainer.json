@@ -1,18 +1,17 @@
 {
-  "name": "node-ts-repo-template.templates.utkusarioglu.com",
+  "name": "ts-algo-workshop.workshops.utkusarioglu.com",
   "dockerComposeFile": [
     "../.docker/docker-compose.dev.yml",
     "docker-compose.yml"
   ],
-  "service": "node-ts-repo-template",
-  "workspaceFolder": "/utkusarioglu-com/templates/node-ts-repo-template",
+  "service": "ts-algo-workshop",
+  "workspaceFolder": "/utkusarioglu-com/workshops/ts-algo-workshop",
   "postCreateCommand": "scripts/post-create-command.sh",
   "customizations": {
     "vscode": {
       "settings": {
         "workbench.colorCustomizations": {
-          "activityBar.background": "#ff0000",
-          "activityBar.foreground": "#000000"
+          "activityBar.background": "#dd4400"
         }
       }
     }

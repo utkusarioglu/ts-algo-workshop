@@ -1,9 +1,9 @@
 {
-  "name": "node-ts-repo-template",
+  "name": "ts-algo-workshop",
   "version": "1.0.0",
-  "description": "Repo template for TypeScript based NodeJS workloads",
+  "description": "Typescript algo workshop",
   "main": "lib/index.js",
-  "repository": "https://github.com/utkusarioglu/node-ts-repo-template.git",
+  "repository": "https://github.com/utkusarioglu/ts-algo-workshop.git",
   "author": "Utku Sarioglu <utkusarioglu@hotmail.com>",
   "license": "MIT",
   "types": "types",
