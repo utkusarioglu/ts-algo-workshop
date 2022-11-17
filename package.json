@@ -9,7 +9,7 @@
   "types": "types",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev src/index.ts",
+    "dev": "ts-node-dev --respawn src/index.ts",
     "prod": "yarn build && yarn start",
     "start": "node .",
     "build": "tsc",
