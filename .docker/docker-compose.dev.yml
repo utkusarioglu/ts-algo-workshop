@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  node-ts-repo-template:
+    image: utkusarioglu/node-devcontainer:19-slim.0.4
+    volumes:
+      - type: bind
+        source: ..
+        target: /utkusarioglu-com/templates/node-ts-repo-template

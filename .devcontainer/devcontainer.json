@@ -1,0 +1,20 @@
+{
+  "name": "node-ts-repo-template.templates.utkusarioglu.com",
+  "dockerComposeFile": [
+    "../.docker/docker-compose.dev.yml",
+    "docker-compose.yml"
+  ],
+  "service": "node-ts-repo-template",
+  "workspaceFolder": "/utkusarioglu-com/templates/node-ts-repo-template",
+  "postCreateCommand": "scripts/post-create-command.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.colorCustomizations": {
+          "activityBar.background": "#ff0000",
+          "activityBar.foreground": "#000000"
+        }
+      }
+    }
+  }
+}

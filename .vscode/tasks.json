@@ -1,0 +1,143 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+    {
+      "type": "shell",
+      "command": "scripts/clean.sh",
+      "label": "Clean",
+      "detail": "Clean all or some parts of the repo",
+      "args": [
+        "${input:cleanType}"
+      ],
+      "isBackground": true,
+      "presentation": {
+        "echo": false,
+        "reveal": "never",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false,
+        "close": true
+      },
+      "icon": {
+        "color": "terminal.ansiRed",
+        "id": "clear-all"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "Dev Monitor",
+      "detail": "Run dev code with monitoring",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": false,
+        "close": false
+      },
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "play"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "prod",
+      "problemMatcher": [],
+      "label": "Prod",
+      "detail": "Build and run production code",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": false,
+        "close": false
+      },
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "play"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "problemMatcher": [],
+      "label": "Test",
+      "detail": "Run all tests with Jest",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": false,
+        "close": false
+      },
+      "icon": {
+        "color": "terminal.ansiYellow",
+        "id": "beaker"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "test-monitor",
+      "problemMatcher": [],
+      "label": "Test Monitor",
+      "detail": "Run and monitor all tests with Jest",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": false,
+        "close": false
+      },
+      "icon": {
+        "color": "terminal.ansiYellow",
+        "id": "beaker"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": [],
+      "label": "Build",
+      "detail": "Build code to be run with NodeJS",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": false,
+        "clear": false,
+        "close": false
+      },
+      "icon": {
+        "color": "terminal.ansiMagenta",
+        "id": "archive"
+      },
+      "runOptions": {
+        "instanceLimit": 10,
+      }
+    },
+  ],
+  "inputs": [
+    {
+      "id": "cleanType",
+      "type": "pickString",
+      "description": "Choose the type of cleaning",
+      "options": [
+        "all",
+        "build",
+        "dependencies"
+      ]
+    }
+  ]
+}
