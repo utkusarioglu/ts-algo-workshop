@@ -1,16 +1,19 @@
-import { measureDuration } from "./utils";
 import { fibonacci } from "./fibonacci";
 import { randomBytes } from "node:crypto";
 
 // @ts-ignore
-function fib() {
+function fibonacciThings() {
   const fibNumber = 42;
-  measureDuration("recursive", () => fibonacci.recursive(fibNumber));
-  measureDuration("recursive", () => fibonacci.recursive(fibNumber));
+
+  console.log("Recursive ".padEnd(50, "-"));
+  console.log("Run #1: \n", fibonacci.recursiveSeries(fibNumber));
+  console.log("Run #2: \n", fibonacci.recursiveSeries(fibNumber));
+
+  console.log("Memoized ".padEnd(50, "-"));
   const memo = {};
-  fibonacci.memoized(fibNumber, memo);
-  measureDuration("memoized", () => fibonacci.memoized(fibNumber, memo));
-  measureDuration("memoized", () => fibonacci.memoized(fibNumber, memo));
+  console.log("Run #1:\n", fibonacci.memoizedSeries(fibNumber, memo));
+  console.log("Run #2:\n", fibonacci.memoizedSeries(fibNumber, memo));
+  console.log("Run #3:\n", fibonacci.memoizedSeries(fibNumber, memo));
 }
 
 // @ts-ignore
@@ -120,74 +123,74 @@ function titleCase() {
   console.log({ search });
 }
 
-function startsWithOne(str: string, substring: string) {
-  if (substring.length > str.length) {
-    return false;
-  } else if (substring === str) {
-    return true;
-  }
+// function startsWithOne(str: string, substring: string) {
+//   if (substring.length > str.length) {
+//     return false;
+//   } else if (substring === str) {
+//     return true;
+//   }
 
-  const sliced = str.slice(0, substring.length);
-  if (sliced === substring) {
-    return true;
-  }
+//   const sliced = str.slice(0, substring.length);
+//   if (sliced === substring) {
+//     return true;
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
-function startsWithTwo(str: string, substring: string) {
-  if (substring.length > str.length) {
-    return false;
-  }
+// function startsWithTwo(str: string, substring: string) {
+//   if (substring.length > str.length) {
+//     return false;
+//   }
 
-  const sliced = str.slice(0, substring.length);
-  if (sliced === substring) {
-    return true;
-  }
+//   const sliced = str.slice(0, substring.length);
+//   if (sliced === substring) {
+//     return true;
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
-function startsWithThree(str: string, substring: string) {
-  if (substring.length > str.length) {
-    return false;
-  } else if (substring.length === str.length && substring === str) {
-    return true;
-  }
+// function startsWithThree(str: string, substring: string) {
+//   if (substring.length > str.length) {
+//     return false;
+//   } else if (substring.length === str.length && substring === str) {
+//     return true;
+//   }
 
-  const sliced = str.slice(0, substring.length);
-  if (sliced === substring) {
-    return true;
-  }
+//   const sliced = str.slice(0, substring.length);
+//   if (sliced === substring) {
+//     return true;
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
-// @ts-ignore
-function startsWithSpeedTest() {
-  const testValues = ["hello", "ha"];
-  measureDuration("1", () => {
-    Array(1000)
-      .fill(testValues)
-      .forEach((args) => {
-        startsWithOne(...(args as [string, string]));
-      });
-  });
-  measureDuration("2", () => {
-    Array(1000)
-      .fill(testValues)
-      .forEach((args) => {
-        startsWithTwo(...(args as [string, string]));
-      });
-  });
-  measureDuration("3", () => {
-    Array(1000)
-      .fill(testValues)
-      .forEach((args) => {
-        startsWithThree(...(args as [string, string]));
-      });
-  });
-}
+// // @ts-ignore
+// function startsWithSpeedTest() {
+//   const testValues = ["hello", "ha"];
+//   measureDurationFunction("1", () => {
+//     Array(1000)
+//       .fill(testValues)
+//       .forEach((args) => {
+//         startsWithOne(...(args as [string, string]));
+//       });
+//   });
+//   measureDurationFunction("2", () => {
+//     Array(1000)
+//       .fill(testValues)
+//       .forEach((args) => {
+//         startsWithTwo(...(args as [string, string]));
+//       });
+//   });
+//   measureDurationFunction("3", () => {
+//     Array(1000)
+//       .fill(testValues)
+//       .forEach((args) => {
+//         startsWithThree(...(args as [string, string]));
+//       });
+//   });
+// }
 
 // @ts-ignore
 function xorThings(): boolean {
@@ -232,19 +235,8 @@ function iterable() {
   console.log("finished");
 }
 
-function fibDecorated() {
-  const fibNumber = 42;
-  console.log("recursive 1: \n", fibonacci.recursiveSeries(fibNumber));
-  console.log("recursive 2: \n", fibonacci.recursiveSeries(fibNumber));
-  console.log("-".repeat(40));
-  const memo = {};
-  console.log("memoized 1:\n", fibonacci.memoizedSeries(fibNumber, memo));
-  console.log("memoized 2:\n", fibonacci.memoizedSeries(fibNumber, memo));
-  console.log("memoized 3:\n", fibonacci.memoizedSeries(fibNumber, memo));
-}
-
 function main() {
-  fibDecorated();
+  console.log("hi");
 }
 
 main();
