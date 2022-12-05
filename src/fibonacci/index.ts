@@ -1,11 +1,11 @@
-import { measureDuration } from "../utils";
+// import { measureDuration } from "../utils";
 
 type FibonacciMemo = Record<number, number>;
 
 /**
  * Houses a bunch of Fibonacci implementations
  */
-class Fibonacci {
+export class Fibonacci {
   /**
    * @dev
    * This one one takes a long time to compute
@@ -35,7 +35,7 @@ class Fibonacci {
    * This would have taken much longer than `recursive` if it wasn't for
    * JIT optimization.
    */
-  @measureDuration()
+  // @measureDuration()
   public recursiveSeries(i: number): number[] {
     return Array(i)
       .fill(null)
@@ -46,7 +46,7 @@ class Fibonacci {
    * @dev
    * This benefits both from `memo` and JIT compilation.
    */
-  @measureDuration()
+  // @measureDuration()
   public memoizedSeries(i: number, memo: FibonacciMemo): number[] {
     return Array(i)
       .fill(null)

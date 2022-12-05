@@ -1,4 +1,4 @@
-type Logger = (d: DurationReturn) => void;
+export type Logger = (d: DurationReturn) => void;
 
 /**
  * Api that any supplied logger function needs to accept.
