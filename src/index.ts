@@ -416,8 +416,81 @@ function descriptorProps() {
   console.log({ descriptors });
 }
 
+/**
+ * Calculates the median of the given array
+ */
+function calculateMedian(array: number[]) {
+  if (array.length % 2 === 0) {
+    const medianIndexLast = array.length / 2;
+    const medianIndexFirst = medianIndexLast - 1;
+    const medianElemFirst = array[medianIndexFirst];
+    const medianElemLast = array[medianIndexLast];
+    if (!medianElemFirst || !medianElemLast) {
+      throw new Error("Window size is incompatible with median calculation");
+    }
+    return (medianElemFirst + medianElemLast) / 2;
+  } else {
+    const medianIndex = Math.floor(array.length / 2);
+    const median = array[medianIndex];
+    if (!median) {
+      throw new Error("Window size is incompatible with median calculation");
+    }
+    return median;
+  }
+}
+
+/**
+ * Calculates the moving median of the given array
+ *
+ * @param windowSize window size for which to calculate the moving median
+ * @param inputArray input values for which the moving medians will be calculated
+ * @returns array of moving medians for the given input array for the specified
+ * window size.
+ */
+function calculateMovingMedian(
+  windowSize: number,
+  inputArray: number[]
+): number[] {
+  const medians: number[] = [];
+  mainLoop: for (
+    let i = -windowSize;
+    i < inputArray.length - windowSize + 1;
+    i++
+  ) {
+    const windowStart = Math.max(i, 0); // #1
+    const windowEnd = Math.min(inputArray.length, i + windowSize);
+    const window = inputArray.slice(windowStart, windowEnd);
+    if (window.length < 1) {
+      continue mainLoop;
+    }
+    const windowSorted = [...window].sort((a, b) => a - b);
+    const median = calculateMedian(windowSorted);
+    medians.push(median);
+  }
+  return medians;
+}
+
+// @ts-ignore
+function arrayChallenge(arr: number[]): string {
+  const windowSize = arr[0];
+  if (!windowSize) {
+    throw new Error("Input array cannot be empty");
+  }
+  const values = arr.slice(1);
+  const movingMedians = calculateMovingMedian(windowSize, values);
+  return movingMedians.join(",");
+}
+
+// @ts-ignore
+function arrayChallengeCall() {
+  console.log("-".repeat(10));
+  const inputArray = [6, 1, 3, 5, 10, 6, 4, 3, 1];
+  const result = arrayChallenge(inputArray);
+  console.log({ result });
+}
+
 function main() {
-  descriptorProps();
+  arrayChallengeCall();
 }
 
 main();
