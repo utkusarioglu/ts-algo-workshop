@@ -1,4 +1,4 @@
 #!/bin/bash
 
 yarn
-.elam/update-status.sh
+${HOME}/elam/elam.sh repo status
