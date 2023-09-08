@@ -1,32 +1,21 @@
-import { InsertionSort as Sorter } from "./insertion-sort";
+import { shuffleArray } from "../utils/random.utils";
+import { HeapSort } from "./heap-sort";
 
-let instance: Sorter;
+const PARAM_LIST = Array(100)
+  .fill(null)
+  .map((_, i) => i)
+  .reverse();
 
-beforeEach(() => {
-  instance = new Sorter();
-});
+const shuffledLists = Array(PARAM_LIST.length)
+  .fill(null)
+  .map(() => shuffleArray(PARAM_LIST));
 
-describe("InsertionSort", () => {
-  describe("loop", () => {
-    [
-      [3, 2, 1],
-      [2, 2, 3],
-      [1, 2, 2, 3],
-      Array(101)
-        .fill(null)
-        .map((_, i) => i)
-        .reverse(),
-      Array(1001)
-        .fill(null)
-        .map((_, i) => i)
-        .reverse(),
-      Array(1001).fill(100),
-    ].forEach((unsorted) => {
-      it(`Handles ${unsorted.join(", ")}`, () => {
-        const response = instance.loop(unsorted);
-        const expected = [...unsorted].sort((a, b) => a - b);
-        expect(response).toEqual(expected);
-      });
+describe("HeapSort", () => {
+  shuffledLists.forEach((unsorted) => {
+    it(`Handles ${unsorted.length} elements`, () => {
+      const response = HeapSort.sort(unsorted);
+      const expected = [...unsorted].sort((a, b) => a - b);
+      expect(response).toEqual(expected);
     });
   });
 });

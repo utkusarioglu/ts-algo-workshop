@@ -1,4 +1,4 @@
-import { measureDuration, type Logger } from "../utils";
+import { measureDuration, type Logger } from "../utils/measure.utils";
 
 type Matrix = number[][];
 
