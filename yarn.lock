@@ -417,15 +417,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@devcontainers/cli@npm:^0.51.2":
-  version: 0.51.3
-  resolution: "@devcontainers/cli@npm:0.51.3"
-  bin:
-    devcontainer: devcontainer.js
-  checksum: d14d01839908736d441025630b11fe5775c77078baeefa5a5be263b1d9e6120aec030c09113124366ed3f2d3e03cf60d4543e12d52ea1884d35e9800d663ef2f
-  languageName: node
-  linkType: hard
-
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -3563,7 +3554,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ts-algo-workshop@workspace:."
   dependencies:
-    "@devcontainers/cli": ^0.51.2
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.9
     jest: ^29.3.1
