@@ -2,7 +2,10 @@ version: "3.9"
 
 services:
   ts-algo-workshop:
+    container_name: ts-algo-workshop
     image: utkusarioglu/node-devcontainer:20-slim.0.7
+    # dns:
+    #   - 172.18.176.1
     volumes:
       - type: bind
         source: ..
